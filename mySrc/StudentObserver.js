@@ -9,7 +9,7 @@ export default class StudentObserver{
             element.innerHTML = `${this.name},${newCourses}`;
             this.update(newCourses);
         })      
-        console.log("here3")
+        console.log("here3");
     }
     observe(newCourses){
         this.update(newCourses);
