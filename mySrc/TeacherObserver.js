@@ -1,12 +1,13 @@
-import Store from "./Store.js";
-export default class TeacherObserver extends Store{
+import {store} from "./Store.js";
+export default class TeacherObserver{
     constructor(name){
-        super();
         this.name = name;
-        this.addEventListener("observerUpdate",e=>{
+        store.addEventListener("observerUpdate",event=>{
+            const newCourses = event.detail;
+            
             let element = document.getElementById("teacher")
-            element.innerHTML = `this.name,e.detail`;
-            console.log(this.name,e.detail) ;
+            element.innerHTML = `${this.name},${newCourses}`;
+            this.update(newCourses);
        })  
     }
     observe(newCourses){
@@ -16,5 +17,3 @@ export default class TeacherObserver extends Store{
         console.log(this.name,newCourses) ;
     }
 }
-
-// module.exports = TeacherObserver;
