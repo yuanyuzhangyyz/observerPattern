@@ -1,7 +1,6 @@
-import Store from "./Store.js"
-export default class CourseSubject extends Store{
+import {store} from "./Store.js"
+export default class CourseSubject{
     constructor(courses){
-        super();
         this.courses = courses ;
         this.observerList = [];
     }
@@ -11,7 +10,7 @@ export default class CourseSubject extends Store{
     setCourses(newCourses){
         this.courses = newCourses;
         console.log("here1");
-        this.dispatchEvent(new CustomEvent("observerUpdate",{
+        store.dispatchEvent(new CustomEvent("observerUpdate",{
             detail: this.courses
         }));
         console.log("here2");
